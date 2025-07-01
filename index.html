@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!DOCTYPE html><html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,7 +33,8 @@
     nav {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
       margin-top: 10px;
     }
     nav a {
@@ -55,7 +55,7 @@
     }
     .players {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 20px;
     }
     .player-card {
@@ -97,7 +97,6 @@
       font-weight: bold;
       cursor: pointer;
       transition: 0.2s ease;
-      transform: scale(1);
     }
     button:hover {
       transform: scale(1.05);
@@ -110,6 +109,14 @@
       border-top: 2px solid var(--accent);
       color: var(--accent);
     }
+    @media (max-width: 500px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      section {
+        padding: 20px 15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -121,27 +128,21 @@
       <a href="#team">Состав</a>
       <a href="#apply">Заявка</a>
     </nav>
-  </header>
-
-  <section id="about">
+  </header>  <section id="about">
     <h2>О нас</h2>
     <p>Bastau Esports — киберспортивная команда из Казахстана, сражающаяся в Standoff 2. Мы верим в стиль, силу и дисциплину. Наша цель — показать, что казахская сцена готова к мировым аренам.</p>
-  </section>
-
-  <section id="team">
+  </section>  <section id="team">
     <h2>Основной состав</h2>
     <div class="players">
-      <div class="player-card"><span>IcyMu — капитан, рифлер</span></div>
-      <div class="player-card"><span>KaL1m — энтрифрагер</span></div>
-      <div class="player-card"><span>2tapp — снайпер</span></div>
-      <div class="player-card"><span>SAiD — саппорт</span></div>
-      <div class="player-card"><span>La1tou — люркер</span></div>
+      <div class="player-card"><a href="players/icymu.html">IcyMu — капитан, рифлер</a></div>
+      <div class="player-card"><a href="players/kal1m.html">KaL1m — энтрифрагер</a></div>
+      <div class="player-card"><a href="players/2tapp.html">2tapp — снайпер</a></div>
+      <div class="player-card"><a href="players/said.html">SAiD — саппорт</a></div>
+      <div class="player-card"><a href="players/la1tou.html">La1tou — люркер</a></div>
     </div>
-  </section>
-
-  <section id="apply">
+  </section>  <section id="apply">
     <h2>Подать заявку в команду</h2>
-    <form action="https://formsubmit.co/muhammedniaz368@gmail.com" method="POST">
+    <form action="https://formsubmit.co/Muhammedniaz368@gmail.com" method="POST">
       <input type="text" name="name" placeholder="Твоё имя / ник" required />
       <input type="email" name="email" placeholder="Email или Telegram" required />
       <textarea name="message" rows="4" placeholder="Кратко расскажи о себе: опыт, роль, звание" required></textarea>
@@ -149,9 +150,7 @@
       <input type="hidden" name="_next" value="https://bastau-esports.github.io/thank-you.html">
       <button type="submit">Отправить заявку</button>
     </form>
-  </section>
-
-  <footer>
+  </section>  <footer>
     <p>&copy; 2025 Bastau Esports — Все права защищены</p>
   </footer>
 </body>

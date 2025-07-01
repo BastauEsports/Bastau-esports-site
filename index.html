@@ -111,3 +111,110 @@
   </footer>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Bastau Esports — Игроки</title>
+  <style>
+    body {
+      background-color: #0f0;
+      color: #000;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    .player-list, .player-page {
+      display: none;
+    }
+    .player-icon {
+      background-color: #000;
+      color: #0f0;
+      padding: 15px 30px;
+      border-radius: 12px;
+      margin: 10px;
+      display: inline-block;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .player-icon:hover {
+      background-color: #222;
+    }
+    .back-button {
+      margin-top: 30px;
+      background-color: #000;
+      color: #0f0;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Главная страница со списком игроков -->
+  <div class="player-list" id="mainPage">
+    <h1>Состав Bastau Esports</h1>
+    <div class="player-icon" onclick="goToPlayer('IcyMu')">IcyMu</div>
+    <div class="player-icon" onclick="goToPlayer('La1tou')">La1tou</div>
+    <div class="player-icon" onclick="goToPlayer('SAiD')">SAiD</div>
+    <div class="player-icon" onclick="goToPlayer('KaL1m')">KaL1m</div>
+  </div>
+
+  <!-- Страница игрока -->
+  <div class="player-page" id="playerPage">
+    <h1 id="nickname"></h1>
+    <p><strong>Имя:</strong> <span id="realName"></span></p>
+    <p><strong>Возраст:</strong> <span id="age"></span> лет</p>
+    <button class="back-button" onclick="goHome()">Назад</button>
+  </div>
+
+  <script>
+    const players = {
+      IcyMu: { name: "Нияз Мухаммед", age: 15 },
+      La1tou: { name: "Бакдаулет Полатбай", age: 13 },
+      SAiD: { name: "Нурислам Полатбай", age: 11 },
+      KaL1m: { name: "Никита", age: 13 }
+    };
+
+    // Переход к профилю игрока
+    function goToPlayer(nick) {
+      window.location.hash = nick;
+      showPlayer(nick);
+    }
+
+    // Назад на главную
+    function goHome() {
+      window.location.hash = '';
+      document.getElementById("mainPage").style.display = "block";
+      document.getElementById("playerPage").style.display = "none";
+    }
+
+    // Отображение данных игрока
+    function showPlayer(nick) {
+      const player = players[nick];
+      if (player) {
+        document.getElementById("nickname").innerText = nick;
+        document.getElementById("realName").innerText = player.name;
+        document.getElementById("age").innerText = player.age;
+        document.getElementById("mainPage").style.display = "none";
+        document.getElementById("playerPage").style.display = "block";
+      } else {
+        goHome();
+      }
+    }
+
+    // Обработка перехода по хешу при загрузке страницы
+    window.addEventListener('load', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && players[hash]) {
+        showPlayer(hash);
+      } else {
+        document.getElementById("mainPage").style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IcyMu — Bastau Esports</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0f0f0f;
+      color: #5eead4;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+    }
+    #lang-switcher {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #lang-switcher button {
+      margin: 0 5px;
+      background: none;
+      border: 1px solid #5eead4;
+      color: #5eead4;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    #lang-switcher button:hover {
+      background-color: #5eead4;
+      color: black;
+    }
+    section {
+      max-width: 600px;
+      margin: auto;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    strong {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 data-i18n="nickname">IcyMu</h1>
+    <div id="lang-switcher">
+      <button onclick="setLang('ru')">RU</button>
+      <button onclick="setLang('kz')">KZ</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+  </header>  <section>
+    <p><strong data-i18n="realname_label">Имя:</strong> <span data-i18n="realname">Мухаммед</span></p>
+    <p><strong data-i18n="age_label">Возраст:</strong> <span data-i18n="age">15 лет</span></p>
+    <p data-i18n="bio">Стратег, капитан Bastau, всегда на шаг впереди.</p>
+  </section>  <script>
+    const translations = {
+      ru: {
+        nickname: "IcyMu",
+        realname_label: "Имя:",
+        realname: "Мухаммед",
+        age_label: "Возраст:",
+        age: "15 лет",
+        bio: "Стратег, капитан Bastau, всегда на шаг впереди."
+      },
+      kz: {
+        nickname: "IcyMu",
+        realname_label: "Аты:",
+        realname: "Мұхаммед",
+        age_label: "Жасы:",
+        age: "15 жаста",
+        bio: "Bastau капитаны, әрқашан бір қадам алда ойлайды."
+      },
+      en: {
+        nickname: "IcyMu",
+        realname_label: "Name:",
+        realname: "Muhammed",
+        age_label: "Age:",
+        age: "15 years old",
+        bio: "Strategist and captain of Bastau, always one step ahead."
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        el.innerText = translations[lang][key];
+      });
+    }
+  </script></body>
+</html>

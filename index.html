@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="ru">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,10 +13,12 @@
       --card-bg: #1a1a1a;
     }
     body {
+      margin: 0;
+      font-family: Arial, sans-serif;
       background-color: var(--bg);
+      color: var(--accent);
       background-image: radial-gradient(circle at 1px 1px, #1f1f1f 1px, transparent 0);
       background-size: 20px 20px;
-      color: var(--accent);
     }
     header {
       background-color: #000;
@@ -24,7 +27,10 @@
       border-bottom: 2px solid var(--accent);
     }
     header h1 {
-      text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);}
+      margin: 0;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+    }
     nav {
       display: flex;
       justify-content: center;
@@ -32,8 +38,15 @@
       margin-top: 10px;
     }
     nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
       transition: 0.2s ease;
-}
+    }
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 8px var(--accent);
+    }
     section {
       padding: 40px 20px;
       max-width: 1000px;
@@ -46,8 +59,16 @@
       gap: 20px;
     }
     .player-card {
+      border: 1px solid var(--accent);
+      padding: 10px;
+      text-align: center;
+      background: var(--card-bg);
       transition: 0.3s ease;
-}
+    }
+    .player-card:hover {
+      box-shadow: 0 0 15px var(--accent);
+      transform: scale(1.03);
+    }
     .player-card a {
       color: var(--accent);
       text-decoration: none;
@@ -62,9 +83,10 @@
       margin: auto;
     }
     input, textarea, button {
-      transition: 0.2s ease;
-      transform: scale(1);
-}
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
     input, textarea {
       background: #222;
       color: var(--accent);
@@ -74,6 +96,12 @@
       color: #fff;
       font-weight: bold;
       cursor: pointer;
+      transition: 0.2s ease;
+      transform: scale(1);
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px var(--accent2);
     }
     footer {
       background-color: #000;
@@ -81,18 +109,6 @@
       padding: 20px;
       border-top: 2px solid var(--accent);
       color: var(--accent);
-    }
-  button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px var(--accent2);
-    }
-  nav a:hover {
-      color: #fff;
-      text-shadow: 0 0 8px var(--accent);
-    }
-  .player-card:hover {
-      box-shadow: 0 0 15px var(--accent);
-      transform: scale(1.03);
     }
   </style>
 </head>
@@ -105,21 +121,27 @@
       <a href="#team">Состав</a>
       <a href="#apply">Заявка</a>
     </nav>
-  </header>  <section id="about">
+  </header>
+
+  <section id="about">
     <h2>О нас</h2>
     <p>Bastau Esports — киберспортивная команда из Казахстана, сражающаяся в Standoff 2. Мы верим в стиль, силу и дисциплину. Наша цель — показать, что казахская сцена готова к мировым аренам.</p>
-  </section>  <section id="team">
+  </section>
+
+  <section id="team">
     <h2>Основной состав</h2>
     <div class="players">
-      <div class="player-card"><a href="players/icymu.html">IcyMu — капитан, рифлер</a></div>
-      <div class="player-card"><a href="players/kal1m.html">KaL1m — энтрифрагер</a></div>
-      <div class="player-card"><a href="players/2tapp.html">2tapp — снайпер</a></div>
-      <div class="player-card"><a href="players/said.html">SAiD — саппорт</a></div>
-      <div class="player-card"><a href="players/la1tou.html">La1tou — люркер</a></div>
+      <div class="player-card"><span>IcyMu — капитан, рифлер</span></div>
+      <div class="player-card"><span>KaL1m — энтрифрагер</span></div>
+      <div class="player-card"><span>2tapp — снайпер</span></div>
+      <div class="player-card"><span>SAiD — саппорт</span></div>
+      <div class="player-card"><span>La1tou — люркер</span></div>
     </div>
-  </section>  <section id="apply">
+  </section>
+
+  <section id="apply">
     <h2>Подать заявку в команду</h2>
-    <form action="https://formsubmit.co/Muhammedniaz368@gmail.com" method="POST">
+    <form action="https://formsubmit.co/muhammedniaz368@gmail.com" method="POST">
       <input type="text" name="name" placeholder="Твоё имя / ник" required />
       <input type="email" name="email" placeholder="Email или Telegram" required />
       <textarea name="message" rows="4" placeholder="Кратко расскажи о себе: опыт, роль, звание" required></textarea>
@@ -127,7 +149,9 @@
       <input type="hidden" name="_next" value="https://bastau-esports.github.io/thank-you.html">
       <button type="submit">Отправить заявку</button>
     </form>
-  </section>  <footer>
+  </section>
+
+  <footer>
     <p>&copy; 2025 Bastau Esports — Все права защищены</p>
   </footer>
 </body>

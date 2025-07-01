@@ -67,10 +67,9 @@
       margin: auto;
     }
     input, textarea, button {
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-    }
+      transition: 0.2s ease;
+      transform: scale(1);
+}
     input, textarea {
       background: #222;
       color: var(--accent);
@@ -87,6 +86,10 @@
       padding: 20px;
       border-top: 2px solid var(--accent);
       color: var(--accent);
+    }
+  button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px var(--accent2);
     }
   </style>
 </head>

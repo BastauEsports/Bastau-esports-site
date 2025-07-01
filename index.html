@@ -47,6 +47,14 @@
       color: #fff;
       text-shadow: 0 0 8px var(--accent);
     }
+    #lang-switcher button {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 5px;
+    }
     section {
       padding: 40px 20px;
       max-width: 1000px;
@@ -91,14 +99,14 @@
       background: #222;
       color: var(--accent);
     }
-    button {
+    button[type="submit"] {
       background-color: var(--accent2);
       color: #fff;
       font-weight: bold;
       cursor: pointer;
       transition: 0.2s ease;
     }
-    button:hover {
+    button[type="submit"]:hover {
       transform: scale(1.05);
       box-shadow: 0 0 10px var(--accent2);
     }
@@ -122,17 +130,22 @@
 <body>
   <header>
     <h1>Bastau Esports</h1>
-    <p>Хедшот в каждый дом</p>
+    <p><span data-i18n="slogan">Хедшот в каждый дом</span></p>
     <nav>
-      <a href="#about">О нас</a>
-      <a href="#team">Состав</a>
-      <a href="#apply">Заявка</a>
+      <a href="#about" data-i18n="nav_about">О нас</a>
+      <a href="#team" data-i18n="nav_team">Состав</a>
+      <a href="#apply" data-i18n="nav_apply">Заявка</a>
+      <div id="lang-switcher">
+        <button onclick="setLang('ru')">RU</button>
+        <button onclick="setLang('kz')">KZ</button>
+        <button onclick="setLang('en')">EN</button>
+      </div>
     </nav>
   </header>  <section id="about">
-    <h2>О нас</h2>
-    <p>Bastau Esports — киберспортивная команда из Казахстана, сражающаяся в Standoff 2. Мы верим в стиль, силу и дисциплину. Наша цель — показать, что казахская сцена готова к мировым аренам.</p>
+    <h2 data-i18n="about_title">О нас</h2>
+    <p data-i18n="about_text">Bastau Esports — киберспортивная команда из Казахстана, сражающаяся в Standoff 2. Мы верим в стиль, силу и дисциплину. Наша цель — показать, что казахская сцена готова к мировым аренам.</p>
   </section>  <section id="team">
-    <h2>Основной состав</h2>
+    <h2 data-i18n="team_title">Основной состав</h2>
     <div class="players">
       <div class="player-card"><a href="players/icymu.html">IcyMu — капитан, рифлер</a></div>
       <div class="player-card"><a href="players/kal1m.html">KaL1m — энтрифрагер</a></div>
@@ -141,17 +154,62 @@
       <div class="player-card"><a href="players/la1tou.html">La1tou — люркер</a></div>
     </div>
   </section>  <section id="apply">
-    <h2>Подать заявку в команду</h2>
+    <h2 data-i18n="form_title">Подать заявку в команду</h2>
     <form action="https://formsubmit.co/Muhammedniaz368@gmail.com" method="POST">
       <input type="text" name="name" placeholder="Твоё имя / ник" required />
       <input type="email" name="email" placeholder="Email или Telegram" required />
       <textarea name="message" rows="4" placeholder="Кратко расскажи о себе: опыт, роль, звание" required></textarea>
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://bastau-esports.github.io/thank-you.html">
-      <button type="submit">Отправить заявку</button>
+      <button type="submit" data-i18n="submit_button">Отправить заявку</button>
     </form>
   </section>  <footer>
-    <p>&copy; 2025 Bastau Esports — Все права защищены</p>
-  </footer>
-</body>
+    <p>&copy; 2025 Bastau Esports — <span data-i18n="rights">Все права защищены</span></p>
+  </footer>  <script>
+    const translations = {
+      ru: {
+        slogan: "Хедшот в каждый дом",
+        nav_about: "О нас",
+        nav_team: "Состав",
+        nav_apply: "Заявка",
+        about_title: "О нас",
+        about_text: "Bastau Esports — киберспортивная команда из Казахстана, сражающаяся в Standoff 2. Мы верим в стиль, силу и дисциплину. Наша цель — показать, что казахская сцена готова к мировым аренам.",
+        team_title: "Основной состав",
+        form_title: "Подать заявку в команду",
+        submit_button: "Отправить заявку",
+        rights: "Все права защищены"
+      },
+      kz: {
+        slogan: "Әр үйге хедшот",
+        nav_about: "Біз туралы",
+        nav_team: "Құрам",
+        nav_apply: "Өтініш",
+        about_title: "Біз туралы",
+        about_text: "Bastau Esports — Қазақстаннан шыққан киберспорт командасы. Біз стильге, күшке және тәртіпке сенеміз. Мақсатымыз — қазақ сахнасын әлемге таныту.",
+        team_title: "Негізгі құрам",
+        form_title: "Командаға өтініш беру",
+        submit_button: "Өтінішті жіберу",
+        rights: "Барлық құқықтар қорғалған"
+      },
+      en: {
+        slogan: "Headshot to every home",
+        nav_about: "About",
+        nav_team: "Team",
+        nav_apply: "Apply",
+        about_title: "About Us",
+        about_text: "Bastau Esports is a competitive team from Kazakhstan playing Standoff 2. We believe in style, strength, and discipline. Our goal is to show the world what Kazakhstan's scene is capable of.",
+        team_title: "Main Roster",
+        form_title: "Apply to the Team",
+        submit_button: "Submit Application",
+        rights: "All rights reserved"
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        el.innerText = translations[lang][key];
+      });
+    }
+  </script></body>
 </html>

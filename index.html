@@ -46,11 +46,8 @@
       gap: 20px;
     }
     .player-card {
-      border: 1px solid var(--accent);
-      padding: 10px;
-      text-align: center;
-      background: var(--card-bg);
-    }
+      transition: 0.3s ease;
+}
     .player-card a {
       color: var(--accent);
       text-decoration: none;
@@ -92,6 +89,10 @@
   nav a:hover {
       color: #fff;
       text-shadow: 0 0 8px var(--accent);
+    }
+  .player-card:hover {
+      box-shadow: 0 0 15px var(--accent);
+      transform: scale(1.03);
     }
   </style>
 </head>

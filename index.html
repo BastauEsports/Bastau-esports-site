@@ -12,9 +12,9 @@
       --card-bg: #1a1a1a;
     }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
       background-color: var(--bg);
+      background-image: radial-gradient(circle at 1px 1px, #1f1f1f 1px, transparent 0);
+      background-size: 20px 20px;
       color: var(--accent);
     }
     header {
@@ -115,11 +115,12 @@
     </div>
   </section>  <section id="apply">
     <h2>Подать заявку в команду</h2>
-    <form action="https://formsubmit.co/muhammedniaz368@gmail.com.com" method="POST">" method="POST">
+    <form action="https://formsubmit.co/Muhammedniaz368@gmail.com" method="POST">
       <input type="text" name="name" placeholder="Твоё имя / ник" required />
       <input type="email" name="email" placeholder="Email или Telegram" required />
       <textarea name="message" rows="4" placeholder="Кратко расскажи о себе: опыт, роль, звание" required></textarea>
-      <input type="hidden" name="_redirect" value="https://bastau-esports.github.io/thank-you.html" />
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://bastau-esports.github.io/thank-you.html">
       <button type="submit">Отправить заявку</button>
     </form>
   </section>  <footer>

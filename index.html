@@ -5,11 +5,11 @@
   <title>Bastau Esports</title>
   <style>
     :root {
-      --accent: #5eead4; /* мягкий бирюзовый */
-      --accent2: #3b82f6; /* синий для кнопок */
-      --bg: #0f0f0f; /* очень тёмный фон */
-      --text: #e0ffe5; /* светлый текст */
-      --card-bg: #1a1a1a; /* блоки */
+      --accent: #5eead4;
+      --accent2: #3b82f6;
+      --bg: #0f0f0f;
+      --text: #e0ffe5;
+      --card-bg: #1a1a1a;
     }
     body {
       margin: 0;
@@ -115,10 +115,10 @@
     </div>
   </section>  <section id="apply">
     <h2>Подать заявку в команду</h2>
-    <form>
-      <input type="text" placeholder="Твоё имя / ник" required />
-      <input type="email" placeholder="Email или Telegram" required />
-      <textarea rows="4" placeholder="Кратко расскажи о себе: опыт, роль, звание" required></textarea>
+    <form action="https://formspree.io/f/your_form_id" method="POST">
+      <input type="text" name="name" placeholder="Твоё имя / ник" required />
+      <input type="email" name="email" placeholder="Email или Telegram" required />
+      <textarea name="message" rows="4" placeholder="Кратко расскажи о себе: опыт, роль, звание" required></textarea>
       <button type="submit">Отправить заявку</button>
     </form>
   </section>  <footer>
